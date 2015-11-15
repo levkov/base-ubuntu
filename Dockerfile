@@ -11,7 +11,6 @@ RUN apt-get update &&\
     apt-get install -y --force-yes software-properties-common \
                        apt-transport-https \
                        supervisor \
-                       curl \
                        wget \
                        openssh-server \
                        vim && \
