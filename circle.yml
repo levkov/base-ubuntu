@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t levkov/base-ubuntu .
+
+test:
+  override:
+    - docker run -h container -p 9001:9001 --name container -d levkov/base-ubuntu; sleep 20
+    - curl --retry 10 --retry-delay 5 -v http://localhost:9001
